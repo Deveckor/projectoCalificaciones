@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calificaciones</title>
+    <link rel="stylesheet" href="./scss/styles.css" />
+    <link rel="stylesheet" href="./scss/custom.css" />
+</head>
+
+<body>
+    <header class="header ">
+        <h1>Bienvenido al registro de Alumnos</h1>
+    </header>
+
+
+    <section class=" d-flex justify-content-center">
+
+
+        <form class=" form-container d-flex flex-wrap justify-content-around gap-2  " action="">
+            <div class="div-name" id="div-name">
+                <input id="name" type="text" name="firstName" placeholder="Nombres"  />
+                <img id="ename" class="error none" src="./assets/exclamation-svgrepo-com.svg" alt="error">
+            </div>
+            <div class="div-lastname" id="div-lastname">
+
+                <input id="last-name" type="text" name="lastName" placeholder="Apellido Paterno" />
+                <img class="error none" id="elname" src="./assets/exclamation-svgrepo-com.svg" alt="error">
+            </div>
+            <div class="div-lastnamem" id="div-lastnamem">
+
+                <input id="last-namem" type="text" name="lastName" placeholder="Apellido Materno" />
+                <img class="error none" id="elnamem" src="./assets/exclamation-svgrepo-com.svg" alt="error">
+            </div>
+
+            <label class="direction d-flex flex-column" for="direction">
+                Dirección:
+                <div class="div-direction" id="div-direction">
+
+                    <input type="text" name="direction" id="direction" placeholder="Calle y numero" />
+                    <img class="error none" id="edirection" src="./assets/exclamation-svgrepo-com.svg" alt="error">
+                </div>
+            </label>
+            <div class="d-block container-bday d-flex justify-content-sm-between gap-4 gap-md-0 align-items-center">
+
+                <label id="div-date" for="date" class="d-flex flex-column">
+                    Fecha de nacimiento:
+                    <input  type="date" name="date" min="1930-01-01" max="2030-01-01"  id="date" />
+                </label>
+                <label class="select" for="grado">Grado:
+                    <select name="grado" id="grado">
+                        <option value="0"> </option>
+                    <option value="1">1°</option>
+                    <option value="2">2°</option>
+                    <option value="3">3°</option>
+                    <option value="4">4°</option>
+                    <option value="5">5°</option>
+                    <option value="6">6°</option>
+                </select>
+            </label>
+            <label class="select" for="grupo">Grupo:
+                <select name="grupo" id="grupo">
+                    <option value="0"> </option>
+                    <option value="a">A </option>
+                    <option value="b">B </option>
+                    <option value="c">C </option>
+                </select>
+            </label>
+        </div>
+
+            <button class="fs-5 fw-bolder" id="enviar" >Agregar</button>
+        </form>
+    </section>
+    <h4 class="mt-5 text-center none">Registro Alumnos</title>
+    <table class="table none">
+        <thead>
+            <tr>
+                <th>Matricula</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Direccion</th>
+                    <th>Grado</th>
+                    <th>Grupo</th>
+                </tr>
+                <tbody>
+            <template id="template">
+            <tr>
+                <th id="matricula">vdfvfdf</th>
+                <th id="nombre">hector</th>
+                <th id="edad">arturo</th>
+                <th id="direccion">azaleas 24</th>
+                <th id="grado"></th>
+                <th id="grupo"></th>
+            </tr>
+        </template>
+        </tbody>
+        </thead>
+    </table>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

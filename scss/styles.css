@@ -1,0 +1,186 @@
+.header {
+  background-color: black;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100vw;
+  text-align: center;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+}
+
+.header h1 {
+  padding: 15px;
+  color: white;
+}
+
+.form-container {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.062), 0 0 0 3px rgba(0, 0, 0, 0.336);
+          box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.062), 0 0 0 3px rgba(0, 0, 0, 0.336);
+  border: 0.8px solid;
+  max-width: 500px;
+  min-width: 150px;
+  margin-top: 150px;
+  height: 50vh;
+  background-color: #fd960f;
+  padding: 20px;
+}
+
+.form-container input {
+  height: 35px;
+  border-radius: 5px;
+}
+
+.form-container input[type="text"]:focus {
+  outline-style: none;
+  border: solid 3px green;
+}
+
+.form-container input[type="date"]:focus {
+  outline-style: none;
+  border: solid 3px green;
+}
+
+.form-container .none {
+  display: none;
+}
+
+.form-container .div-name {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  position: relative;
+}
+
+.form-container .div-name #name {
+  width: 100%;
+}
+
+.form-container .error {
+  width: 25px;
+  right: 10px;
+  top: 5px;
+  position: absolute;
+}
+
+.form-container .div-lastname {
+  display: inline;
+  width: 49%;
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.form-container .div-lastname #last-name {
+  width: 100%;
+}
+
+.form-container .div-lastnamem {
+  display: inline;
+  width: 49%;
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.form-container .div-lastnamem #last-namem {
+  width: 100%;
+}
+
+.form-container .direction {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.form-container .direction .div-direction {
+  display: inline;
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.form-container .direction .div-direction #direction {
+  width: 100%;
+}
+
+.form-container .container-bday {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.form-container .container-bday .select {
+  margin-top: 20px;
+}
+
+.form-container #enviar {
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  width: 150px;
+  height: 35px;
+  border: none;
+}
+
+.form-container #enviar:hover {
+  background-color: #303030;
+}
+
+.form-container #enviar:active {
+  background-color: black;
+  -webkit-box-shadow: 0 0 0 2px lime, 0 0 0 4px rgba(1, 255, 1, 0.048);
+          box-shadow: 0 0 0 2px lime, 0 0 0 4px rgba(1, 255, 1, 0.048);
+}
+
+.form-container #enviar:disabled {
+  background-color: #a3a3a3;
+}
+
+.form-container .warning {
+  border-radius: 5px;
+  border: solid red 0.5px;
+  background-color: white;
+  text-align: center;
+  height: 30px;
+  font-size: x-small;
+}
+
+.table {
+  color: white;
+}
+
+.none {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    height: 500px;
+    width: 90vw;
+  }
+  .form-container .div-lastname {
+    width: 100%;
+  }
+  .form-container .div-lastnamem {
+    width: 100%;
+  }
+  .form-container .container-bday {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .form-container .container-bday .select {
+    margin-top: 0px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
