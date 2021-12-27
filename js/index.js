@@ -1,16 +1,30 @@
+import { obtenerEdad } from "./obtener-edad.js";
+import { obtenerMatricula } from "./obtener-matricula.js";
+
 const d = document,
     date = new Date(),
     // con en objeto Date se ocupo para obtener la fecha actual, posteriormente se ocupara para sacar la edad del usuario que se registra.
     $date = d.getElementById("date"),
-    $template = d.getElementById("template");
-console.log(date.toLocaleDateString());
+    $tbody = d.querySelector(".tbody"),
+    $table = d.getElementById("table"),
+    $regAlumnos = d.getElementById("regAlumnos");
+   
+    
+    class Alumno {
+       constructor(matricula, nombre, direccion, anios, grado, grupo){
+
+           this.matricula = matricula,
+           this.nombre= nombre,
+           this.anios= anios,
+           this.direccion= direccion,
+           this.grado= grado,
+           this.grupo= grupo
+       } 
+    }
+    
+    
+
 let birthday = "",
-    // obtiene el dia 
-    day = date.getDate(),
-    // obtiene el mes, ya que es un arreglo se le suma uno porque enero empieza en la posicion 0
-    month = date.getMonth() + 1,
-    // obtiene el año
-    year = date.getFullYear(),
     $name = d.getElementById('name'),
     $lastName = d.getElementById('last-name'),
     $lastNamem = d.getElementById('last-namem'),
@@ -23,25 +37,24 @@ let birthday = "",
     $divDirection = d.getElementById('div-direction'),
     $divDate = d.getElementById('div-date'),
     expreg = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/,
-    expreg2 =  /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/
+    expreg2 =  /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/,
+    dateToday = date.getTime();
 
 
+    
 
-//Esta funcion esta a la escucha de un cambio, en este caso cuando se haga un click.
-d.addEventListener('click', (e) => {
-
-
-
-
-
-
-
-
-
-
+   
+    //Esta funcion esta a la escucha de un cambio, en este caso cuando se haga un click.
+    d.addEventListener('click', (e) => {
+               
     // Esta funcion esta condicionada si el click se origino en el tag que tiene el identificador enviar
     if (e.target.matches('#enviar')) {
-
+        birthday = $date.value;
+        let dateone = birthday.split('-'),
+        birthdayDay = new Date(dateone[0],dateone[1]-1,dateone[2]),
+        dateTwo = birthdayDay.getTime();
+        // Evita que se efectue la funcion que tiene por defecto los botones dentro de un form
+        e.preventDefault();
         if (!$name.value || !$lastName.value || !$lastNamem.value || !$direction.value || !$date.value || $grade.value === "0" || $group.value === "0") {
             d.getElementById('enviar').setAttribute('disabled', '');
             if (!$name.value) {
@@ -120,9 +133,9 @@ d.addEventListener('click', (e) => {
              
 
 
-        } else {
-            if (!expreg.test($name.value) || !expreg.test($lastName.value) || !expreg.test($lastNamem.value) || !expreg2.test($direction.value)) {
-            }
+        } else if (!expreg.test($name.value) || !expreg.test($lastName.value) || !expreg.test($lastNamem.value) || !expreg2.test($direction.value) || dateToday < dateTwo) {
+            
+        
             if (!expreg.test($name.value)) {
                 
                 let $warningtext = d.createElement('div');
@@ -176,17 +189,82 @@ d.addEventListener('click', (e) => {
                     $divDirection.removeChild($divDirection.lastChild);
                 }, 4000);
             }
+            if (dateToday < dateTwo) {
+                let $warningtext = d.createElement('div');
+
+                $divDate.appendChild($warningtext);
+                $warningtext.classList.add('warning');
+                $warningtext.innerHTML = '<p>No puedes ingresar una fecha mayor al día de hoy</p>';
                 
+                setTimeout(() => {
+                    $divDate.removeChild($divDate.lastChild);
+                }, 4000);
+            }
+            
+        } else {
+            let anios = obtenerEdad(dateToday, dateTwo),
+            nombre = ($name.value).toUpperCase().trim(),
+            apellidoPaterno = ($lastName.value).toUpperCase().trim(),
+            apellidoMaterno = ($lastNamem.value).toUpperCase().trim(),
+            direccion = ($direction.value).toUpperCase().trim(),
+            grado = $grade.value,
+            grupo = $group.value,
+            matricula = obtenerMatricula(anios,nombre,apellidoPaterno,apellidoMaterno,direccion,grado,grupo),
+            nombreCompleto = nombre.concat(' ',apellidoPaterno,' ',apellidoMaterno);
+
+            $name.value = '';
+            $lastName.value = '';
+            $lastNamem.value = '';
+            $direction.value = '';
+            $date.value = '';
+            $grade.value = '0';
+            $group.value = '0';
+
+            $regAlumnos.classList.remove('none');
+            $table.classList.remove('none');
+            
+            let arrayObject = [matricula,nombreCompleto,anios,direccion,grado,grupo]
+            
+            let registroAlumno = new Alumno();
+
+            
+            registroAlumno.matricula = matricula;
+            registroAlumno.nombre = nombreCompleto;
+            registroAlumno.anios = anios;
+            registroAlumno.direccion = direccion;
+            registroAlumno.grado = grado;
+            registroAlumno.grupo = grupo;
+            
+            let $tr = d.createElement('tr');
+            
+            
+            $tbody.appendChild($tr);
+            
+            for (const key in registroAlumno) {
+                if (Object.hasOwnProperty.call(registroAlumno, key)) {
+                    const element = registroAlumno[key];
+                    console.log(element);
+
+                    let $td = d.createElement('td');
+                    $tr.appendChild($td).textContent = element;
+
+                    
+
+                }
+            }
+            
+
+            
+
+
+
+
+
+
         }
 
-        // Evita que se efectue la funcion que tiene por defecto los botones dentro de un form
-        e.preventDefault();
-        // Obtiene el valor que ingreso el usuario en la fecha
-        birthday = $date.value;
-        let dateBirthday = birthday.split('-'),
-            bdayYear = parseInt(dateBirthday[0]),
-            bdayMonth = parseInt(dateBirthday[1]),
-            bdayDay = parseInt(dateBirthday[2]);
+        
+       
 
 
 

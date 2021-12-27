@@ -150,8 +150,10 @@
   border: solid red 0.5px;
   background-color: white;
   text-align: center;
-  height: 30px;
-  font-size: x-small;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: small;
 }
 
 .table {
