@@ -20,12 +20,12 @@
 
         <form class=" form-container d-flex flex-wrap justify-content-around gap-2  " action="">
             <div class="div-name" id="div-name">
-                <input id="name" type="text" name="firstName" placeholder="Nombres" />
+                <input id="name" type="text" name="name" placeholder="Nombres"  />
                 <img id="ename" class="error none" src="./assets/exclamation-svgrepo-com.svg" alt="error">
             </div>
             <div class="div-lastname" id="div-lastname">
 
-                <input id="last-name" type="text" name="lastName" placeholder="Apellido Paterno" />
+                <input id="last-name" type="text" name="firstName" placeholder="Apellido Paterno" />
                 <img class="error none" id="elname" src="./assets/exclamation-svgrepo-com.svg" alt="error">
             </div>
             <div class="div-lastnamem" id="div-lastnamem">
@@ -72,9 +72,13 @@
             <button class="fs-5 fw-bolder" id="enviar">Agregar</button>
         </form>
     </section>
-    <h4 id="regAlumnos" class="mt-5 text-center none">Registro Alumnos</title>
+
+    <section id="table-sec" class="table-sec"> 
+
+        <h3 id="regAlumnos" class="mt-5 text-center none">Registro Alumnos</h3>
         <table id="table" class="table none">
-            <thead>
+        
+            <thead class="thead-one">
                 <tr>
                     <th>Matricula</th>
                     <th>Nombre</th>
@@ -86,10 +90,11 @@
             </thead>
             <tbody class="tbody">
                 
-
-                </tbody>
+                
+            </tbody>
         </table>
+    </section>
         <script src="./js/index.js" type="module"></script>
-</body>
-
+    </body>
+    
 </html>

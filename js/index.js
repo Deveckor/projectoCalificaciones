@@ -1,5 +1,7 @@
+import { crearTabla, insertarTabla } from "./insertar-tabla.js";
 import { obtenerEdad } from "./obtener-edad.js";
 import { obtenerMatricula } from "./obtener-matricula.js";
+
 
 const d = document,
     date = new Date(),
@@ -7,6 +9,7 @@ const d = document,
     $date = d.getElementById("date"),
     $tbody = d.querySelector(".tbody"),
     $table = d.getElementById("table"),
+    $seccionTable = d.getElementById("table-sec"),
     $regAlumnos = d.getElementById("regAlumnos");
    
     
@@ -38,15 +41,16 @@ let birthday = "",
     $divDate = d.getElementById('div-date'),
     expreg = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/,
     expreg2 =  /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/,
-    dateToday = date.getTime();
-
-
+    dateToday = date.getTime(),
+    $btnCali = d.createElement('button'),
+    o = 0;
+    
     
 
    
     //Esta funcion esta a la escucha de un cambio, en este caso cuando se haga un click.
     d.addEventListener('click', (e) => {
-               
+         
     // Esta funcion esta condicionada si el click se origino en el tag que tiene el identificador enviar
     if (e.target.matches('#enviar')) {
         birthday = $date.value;
@@ -223,7 +227,7 @@ let birthday = "",
             $regAlumnos.classList.remove('none');
             $table.classList.remove('none');
             
-            let arrayObject = [matricula,nombreCompleto,anios,direccion,grado,grupo]
+            // let arrayObject = [matricula,nombreCompleto,anios,direccion,grado,grupo]
             
             let registroAlumno = new Alumno();
 
@@ -243,34 +247,63 @@ let birthday = "",
             for (const key in registroAlumno) {
                 if (Object.hasOwnProperty.call(registroAlumno, key)) {
                     const element = registroAlumno[key];
-                    console.log(element);
+                    
 
-                    let $td = d.createElement('td');
-                    $tr.appendChild($td).textContent = element;
+                    if (key === "nombre") {
+                        let $td = d.createElement('td');
+                        $tr.appendChild($td).textContent = element;
+                        $td.classList.add('nombre-completo')
+                    } else {
+
+                        let $td = d.createElement('td');
+                        $tr.appendChild($td).textContent = element;
+                    }
 
                     
 
                 }
             }
+
+
+            $seccionTable.insertAdjacentElement('afterend',$btnCali);
+            $btnCali.textContent = 'Ver Calificaciones';
+            $btnCali.classList.add('btn-cali')
             
-
             
-
-
-
 
 
 
         }
 
         
-       
-
-
-
-
+        
+        
+        
+        
     }
+
+    if (e.target.matches(".btn-cali")) {
+        const $tbodyTwo = d.createElement('tbody'),
+        $alumnos = d.querySelectorAll('.nombre-completo');
+        o++;
+        if (o === 1) {
+            
+            crearTabla($btnCali,$tbodyTwo,$alumnos);
+        }
+        
+
+        insertarTabla($alumnos,$tbodyTwo);
+        
+        
+
+
+    }   
+    
 })
+
+
+
+
 
 d.addEventListener('focusin', (e) => {
     if (e.target.matches('#name')) {

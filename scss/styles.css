@@ -156,17 +156,60 @@
   font-size: small;
 }
 
-.table {
-  color: white;
-}
-
 .none {
   display: none;
 }
 
+.table-sec {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-sec .table {
+  table-layout: inherit;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.table-sec .table .thead-one {
+  background-color: black;
+  color: white;
+  height: 40px;
+}
+
+.table-sec .table .tbody {
+  background-color: white;
+  font-size: 0.8rem;
+}
+
+.btn-cali {
+  width: 150px;
+  height: 40px;
+  display: block;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-cali:hover {
+  background-color: #303030;
+}
+
+.btn-cali:active {
+  background-color: black;
+  -webkit-box-shadow: 0 0 0 2px lime, 0 0 0 4px rgba(1, 255, 1, 0.048);
+          box-shadow: 0 0 0 2px lime, 0 0 0 4px rgba(1, 255, 1, 0.048);
+}
+
 @media (max-width: 768px) {
   .form-container {
-    height: 500px;
+    height: 600px;
     width: 90vw;
   }
   .form-container .div-lastname {
@@ -183,6 +226,12 @@
   }
   .form-container .container-bday .select {
     margin-top: 0px;
+  }
+  .table-sec .table {
+    font-size: 0.6rem;
+  }
+  .table-sec .table .tbody {
+    font-size: 0.5rem;
   }
 }
 /*# sourceMappingURL=styles.css.map */

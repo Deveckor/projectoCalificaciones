@@ -1,173 +1,204 @@
 $color-text: white;
 
 @mixin border {
-    border-radius: 5px;
-
+  border-radius: 5px;
 }
 
-.header{
-    background-color: black;
-    height: fit-content;
-    width: 100vw;
-    text-align: center;
-    position: fixed;
-    z-index: 50;
-    top: 0;
-    h1{
-        padding: 15px;
-        color: $color-text;
-    }
-}
-
-.form-container{
-    @include border;
-    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.062),
-    0 0 0 3px rgba(0, 0, 0, 0.336);
-    border:  0.8px solid;
-    max-width: 500px;
-    min-width: 150px;
-    margin-top: 150px;
-    height: 50vh;
-    background-color: rgb(253, 150, 15);
-    padding: 20px;
-    input{
-        height: 35px;
-        @include border();
-        
-        &[type="text"]:focus{
-            outline-style: none;
-            border: solid 3px green;
-        }
-        
-        &[type="date"]:focus{
-            outline-style: none;
-            border: solid 3px green;
-        }
-        
-       
-        
-        
-    }
-    .none{
-        display: none;
-    }
-    
-    .div-name{
-        
-        height: fit-content;
-        width: 100%;
-        position: relative;
-        #name{
-            width: 100%
-        }
-    }
-    .error{
-        width: 25px;
-        right: 10px;
-        top: 5px;
-        position: absolute;
-    }
-    .div-lastname{
-        display: inline;
-        width: 49%;
-        position: relative;
-        height: fit-content;
-        #last-name{
-            width: 100%;
-        } 
-    }
-    .div-lastnamem{
-        
-        display: inline;
-        width: 49%;
-        position: relative;
-        height: fit-content;
-        #last-namem{
-            width: 100%;
-        } 
-    }
-    .direction{
-        
-        width: 100%;
-        height: fit-content;
-        .div-direction{
-        display: inline; 
-        position: relative;
-        height: fit-content;
-            #direction{
-                width: 100%;
-            } 
-        }
-    }
-    
-    .container-bday{
-        width: 100%;
-        height: fit-content;
-        .select{
-            margin-top: 20px;
-        }
-    }
-    #enviar{
-        @include border();
-        background-color: black;
-        color: $color-text;
-        width: 150px;
-        height: 35px;
-        border: none;
-        &:hover{
-            background-color: rgb(48, 48, 48);
-        
-        }
-        &:active{
-            background-color: black;
-            box-shadow: 0 0 0 2px rgb(0, 255, 0),
-            0 0 0 4px rgba(1, 255, 1, 0.048);
-        }
-        &:disabled{
-            background-color: rgb(163, 163, 163);
-        }
-    }
-
-    .warning{
-        @include border();
-        border: solid red 0.5px;
-        background-color: white;
-        text-align: center;
-        height: fit-content;
-        font-size: small;
-       
-    }
-}
-
-.table{
+.header {
+  background-color: black;
+  height: fit-content;
+  width: 100vw;
+  text-align: center;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  h1 {
+    padding: 15px;
     color: $color-text;
-    
+  }
 }
-.none{
+
+.form-container {
+  @include border;
+  box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.062), 0 0 0 3px rgba(0, 0, 0, 0.336);
+  border: 0.8px solid;
+  max-width: 500px;
+  min-width: 150px;
+  margin-top: 150px;
+  height: 50vh;
+  background-color: rgb(253, 150, 15);
+  padding: 20px;
+  input {
+    height: 35px;
+    @include border();
+
+    &[type="text"]:focus {
+      outline-style: none;
+      border: solid 3px green;
+    }
+
+    &[type="date"]:focus {
+      outline-style: none;
+      border: solid 3px green;
+    }
+  }
+  .none {
     display: none;
+  }
+
+  .div-name {
+    height: fit-content;
+    width: 100%;
+    position: relative;
+    #name {
+      width: 100%;
+    }
+  }
+  .error {
+    width: 25px;
+    right: 10px;
+    top: 5px;
+    position: absolute;
+  }
+  .div-lastname {
+    display: inline;
+    width: 49%;
+    position: relative;
+    height: fit-content;
+    #last-name {
+      width: 100%;
+    }
+  }
+  .div-lastnamem {
+    display: inline;
+    width: 49%;
+    position: relative;
+    height: fit-content;
+    #last-namem {
+      width: 100%;
+    }
+  }
+  .direction {
+    width: 100%;
+    height: fit-content;
+    .div-direction {
+      display: inline;
+      position: relative;
+      height: fit-content;
+      #direction {
+        width: 100%;
+      }
+    }
+  }
+
+  .container-bday {
+    width: 100%;
+    height: fit-content;
+    .select {
+      margin-top: 20px;
+    }
+  }
+  #enviar {
+    @include border();
+    background-color: black;
+    color: $color-text;
+    width: 150px;
+    height: 35px;
+    border: none;
+    &:hover {
+      background-color: rgb(48, 48, 48);
+    }
+    &:active {
+      background-color: black;
+      box-shadow: 0 0 0 2px rgb(0, 255, 0), 0 0 0 4px rgba(1, 255, 1, 0.048);
+    }
+    &:disabled {
+      background-color: rgb(163, 163, 163);
+    }
+  }
+
+  .warning {
+    @include border();
+    border: solid red 0.5px;
+    background-color: white;
+    text-align: center;
+    height: fit-content;
+    font-size: small;
+  }
 }
 
+.none {
+  display: none;
+}
+.table-sec {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  .table {
+    table-layout: inherit;
+    font-size: 1rem;
+    text-align: center;
+
+    border-radius: 15px;
+    .thead-one {
+      background-color: black;
+      color: $color-text;
+      height: 40px;
+    }
+    .tbody {
+      background-color: white;
+      font-size: 0.8rem;
+    }
+  }
+}
+.btn-cali {
+  width: 150px;
+  height: 40px;
+  display: block;
+  background-color: black;
+  color: $color-text;
+  font-weight: bold;
+  @include border();
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+
+  &:hover {
+    background-color: rgb(48, 48, 48);
+  }
+  &:active {
+    background-color: black;
+    box-shadow: 0 0 0 2px rgb(0, 255, 0), 0 0 0 4px rgba(1, 255, 1, 0.048);
+  }
+}
 @media (max-width: 768px) {
-
-    .form-container{
-        height: 500px;
-        width: 90vw;
-    .div-lastname{
-        width: 100%;
+  .form-container {
+    height: 600px;
+    width: 90vw;
+    .div-lastname {
+      width: 100%;
     }
-    .div-lastnamem{
-        width: 100%;
+    .div-lastnamem {
+      width: 100%;
     }
-    .container-bday{
-        width: 100%;
-        height: fit-content;
-        .select{
-            margin-top: 0px;
-        }
+    .container-bday {
+      width: 100%;
+      height: fit-content;
+      .select {
+        margin-top: 0px;
+      }
     }
+  }
+  .table-sec {
+    
+    .table {
+      
+      font-size: 0.6rem;
+      
+      .tbody {
+        
+        font-size: 0.5rem;
+      }
+    }
+  }
 }
-}
-
-
-
-
