@@ -1,6 +1,8 @@
-import { crearTabla, insertarTabla } from "./insertar-tabla.js";
+import { crearTabla } from "./crear-tabla.js";
+import { insertarTabla } from "./insertar-tabla.js";
 import { obtenerEdad } from "./obtener-edad.js";
 import { obtenerMatricula } from "./obtener-matricula.js";
+import { PromedioMasAlto } from "./promedio-alto.js";
 
 
 const d = document,
@@ -43,6 +45,7 @@ let birthday = "",
     expreg2 =  /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/,
     dateToday = date.getTime(),
     $btnCali = d.createElement('button'),
+    $ultimo = d.getElementById('ultimo'),
     o = 0;
     
     
@@ -206,6 +209,10 @@ let birthday = "",
             }
             
         } else {
+            
+                
+                
+            
             let anios = obtenerEdad(dateToday, dateTwo),
             nombre = ($name.value).toUpperCase().trim(),
             apellidoPaterno = ($lastName.value).toUpperCase().trim(),
@@ -267,8 +274,10 @@ let birthday = "",
 
             $seccionTable.insertAdjacentElement('afterend',$btnCali);
             $btnCali.textContent = 'Ver Calificaciones';
-            $btnCali.classList.add('btn-cali')
+            $btnCali.classList.add('btnStyle','btn-cali');
+            $btnCali.setAttribute('href','#ultimo');
             
+            $ultimo.scrollIntoView({block: 'end'});
             
 
 
@@ -285,20 +294,39 @@ let birthday = "",
     if (e.target.matches(".btn-cali")) {
         const $tbodyTwo = d.createElement('tbody'),
         $alumnos = d.querySelectorAll('.nombre-completo');
+        
+
+        
+        
         o++;
         if (o === 1) {
             
-            crearTabla($btnCali,$tbodyTwo,$alumnos);
+           crearTabla($btnCali,$tbodyTwo,$alumnos);
+           const $tableTwo = d.querySelector('.table-sec-two'),
+           $btnProm = d.createElement('button');
+   
+           $btnProm.classList.add('btnStyle' , 'btn-prom');
+           $btnProm.textContent = 'Ordenar Promedio';
+           $tableTwo.insertAdjacentElement('afterend',$btnProm);
         }
         
 
         insertarTabla($alumnos,$tbodyTwo);
-        
-        
 
+        $ultimo.scrollIntoView({block: 'end'});
 
     }   
-    
+    if (e.target.matches(".btn-prom")) {
+        
+        
+
+        PromedioMasAlto();
+
+
+    }
+    if(e.target.matches(".btn-close")){
+        window.location.reload();
+    }
 })
 
 

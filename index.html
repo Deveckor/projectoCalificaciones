@@ -42,13 +42,13 @@
                     <img class="error none" id="edirection" src="./assets/exclamation-svgrepo-com.svg" alt="error">
                 </div>
             </label>
-            <div class="d-block container-bday d-flex justify-content-sm-between gap-4 gap-md-0 align-items-center">
+            <div class="d-block container-bday d-flex justify-content-between align-items-center">
 
                 <label id="div-date" for="date" class="d-flex flex-column">
                     Fecha de nacimiento:
                     <input type="date" name="date" min="1930-01-01" max="2030-01-01" id="date" />
                 </label>
-                <label class="select" for="grado">Grado:
+                <label class="select d-flex flex-column" for="grado">Grado:
                     <select name="grado" id="grado">
                         <option value="0"> </option>
                         <option value="1">1°</option>
@@ -59,7 +59,7 @@
                         <option value="6">6°</option>
                     </select>
                 </label>
-                <label class="select" for="grupo">Grupo:
+                <label class="select d-flex flex-column" for="grupo">Grupo:
                     <select name="grupo" id="grupo">
                         <option value="0"> </option>
                         <option value="A">A </option>
@@ -69,11 +69,11 @@
                 </label>
             </div>
 
-            <button class="fs-5 fw-bolder" id="enviar">Agregar</button>
+            <button class="fs-5 fw-bolder" id="enviar"> Agregar</button>
         </form>
     </section>
 
-    <section id="table-sec" class="table-sec"> 
+    <section id="table-sec" class="table-sec "> 
 
         <h3 id="regAlumnos" class="mt-5 text-center none">Registro Alumnos</h3>
         <table id="table" class="table none">
@@ -94,6 +94,7 @@
             </tbody>
         </table>
     </section>
+    <div id="ultimo"></div>
         <script src="./js/index.js" type="module"></script>
     </body>
     
