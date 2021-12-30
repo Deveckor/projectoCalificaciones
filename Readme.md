@@ -60,7 +60,7 @@ Decidí incluir una validación que no permita agregar esos datos si los input e
 
 ## Validación datos
 
-![alt interfaz](./img/validacion-datos.PNG)
+![alt interfaz-datos](./img/Validacion-datos.PNG)
 
 </center>
 
