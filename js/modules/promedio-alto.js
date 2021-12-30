@@ -2,7 +2,7 @@ const d = document;
 
 // Esta fue una de las funciones que me costaron mas trabajo porque creia que con un ciclo for me solucionaria el acomodar de mayor a menor pero investigue y tuve que agregar los datos de nombre y el promedio general en un arreglo.
 
-export function PromedioMasAlto() {
+function PromedioMasAlto() {
     // Aqui creo la ventana emergente
     const   $btnPromClass = d.querySelector('.btn-prom'),
             $background = d.createElement('section'),
@@ -43,7 +43,6 @@ export function PromedioMasAlto() {
         // Aqui investigue como ordenar y vi que el objeto Array tiene un metodo que se llama sort que te acomoda ascendentemente los valores, por eso ocupe el metodo reverse para lo que se requeria
         // http://www.w3bai.com/es/jsref/jsref_sort.html
         order = arr.sort().reverse();
-            
         order.forEach(el => {
             let $list = d.createElement('p'),
             $subtitle = d.createElement('h5');
@@ -59,7 +58,8 @@ export function PromedioMasAlto() {
                 $divOrder.appendChild($list);
                 $list.innerText= `${el[1]} 
                 ${el[0]}`
-
+                
+                
                 
             }
             if(i === 1){
@@ -71,25 +71,29 @@ export function PromedioMasAlto() {
 
                 
             }
-            if(i === 3){
+            if(i === 2){
                 $divOrder.appendChild($subtitle);
                 $subtitle.innerText = `TERCER LUGAR`
                 $divOrder.appendChild($list);
                 $list.innerText= `${el[1]} 
                 ${el[0]}`
                 
+                
             } 
-            if(i===4) {
+            if(i===3) {
                 $divOrder.appendChild($subtitle);
                 $subtitle.innerText = `_________________________`
                 $divOrder.appendChild($list);
                 $list.innerText= `${el[1]} 
                 ${el[0]}`
+
+                
             }
-            if(i>4) {
+            if(i>3) {
                 $divOrder.appendChild($list);
                 $list.innerText= `${el[1]}
                 ${el[0]}`
+                
             }
             
             
@@ -102,3 +106,4 @@ export function PromedioMasAlto() {
         
     }
  
+export { PromedioMasAlto}

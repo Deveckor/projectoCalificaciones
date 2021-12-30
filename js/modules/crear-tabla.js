@@ -1,6 +1,6 @@
 const d = document;
 
-export function crearTabla($btnCali, $tbodyTwo) {
+ function crearTabla($btnCali, $tbodyTwo) {
     // Esta funcion crea la segunda tabla practicamente agrega la cabecera de la tabla
     const $seccionTableTwo = d.createElement('section'),
         $title = d.createElement('h3'),
@@ -31,3 +31,5 @@ export function crearTabla($btnCali, $tbodyTwo) {
         $tbodyTwo.classList.add('tbody')
         return ( $tbodyTwo)
 }
+
+export { crearTabla}

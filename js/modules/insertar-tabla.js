@@ -6,7 +6,7 @@ function getRandomArbitrary(min, max) {
     return (Math.random() * (max - min) + min).toFixed(2);
   }
 
-export function insertarTabla($alumnos, $tbodyTwo) {
+function insertarTabla($alumnos, $tbodyTwo) {
         
     let o = 0;
     // Este ciclo for me ayudo para insertar cada alumno de la tabla anterior.
@@ -53,3 +53,4 @@ export function insertarTabla($alumnos, $tbodyTwo) {
 }
 
 
+export { insertarTabla }

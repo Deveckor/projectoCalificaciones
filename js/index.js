@@ -1,9 +1,9 @@
 // Tenia el conocimiento de hacer importaciones de modulos, al principio no me respondia porque en la etiqueta script no le habia creado el atributo type = module
-import { crearTabla } from "./crear-tabla.js";
-import { insertarTabla } from "./insertar-tabla.js";
-import { obtenerEdad } from "./obtener-edad.js";
-import { obtenerMatricula } from "./obtener-matricula.js";
-import { PromedioMasAlto } from "./promedio-alto.js";
+import { crearTabla } from "./modules/crear-tabla.js";
+import { insertarTabla } from "./modules/insertar-tabla.js";
+import { obtenerEdad } from "./modules/obtener-edad.js";
+import { obtenerMatricula } from "./modules/obtener-matricula.js";
+import { PromedioMasAlto } from "./modules/promedio-alto.js";
 
 // Aqui defini mis variables como constantes ya que el el curso del codigo no cambiaran.
 const d = document,
