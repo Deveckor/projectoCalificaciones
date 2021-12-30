@@ -206,7 +206,7 @@
   border: none;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .btnStyle:hover {
@@ -251,6 +251,16 @@
 
 .text {
   color: dimgrey;
+}
+
+.footer {
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  z-index: 50;
+  height: 60px;
+  width: 100%;
+  color: white;
 }
 
 @media (max-width: 768px) {

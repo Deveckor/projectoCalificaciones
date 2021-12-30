@@ -1,6 +1,7 @@
 const d = document;
 
-export function crearTabla($btnCali, $tbodyTwo, $alumnos) {
+export function crearTabla($btnCali, $tbodyTwo) {
+    // Esta funcion crea la segunda tabla practicamente agrega la cabecera de la tabla
     const $seccionTableTwo = d.createElement('section'),
         $title = d.createElement('h3'),
         $tableTwo = d.createElement('table'),
@@ -28,5 +29,5 @@ export function crearTabla($btnCali, $tbodyTwo, $alumnos) {
         $thead.innerHTML = $headTable;
         $tableTwo.appendChild($tbodyTwo);
         $tbodyTwo.classList.add('tbody')
-        return ($alumnos, $tbodyTwo)
+        return ( $tbodyTwo)
 }

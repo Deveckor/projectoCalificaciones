@@ -1,5 +1,5 @@
 
-
+// En esta funcion ocupe varias funciones del objeto String para obtener ciertos caracteres para generar una matricula con el nombre los apellidos la direccion y lo concatene con los años grupo y grado.
 export function obtenerMatricula(anios,nombre,apellidoPaterno,apellidoMaterno,direccion,grado,grupo) {
     
     let one = nombre.charAt(2),
